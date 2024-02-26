@@ -91,6 +91,11 @@ inquirer.prompt([
         message: 'What is the Github username for the engineer?'
     }
 ])
+.then(input => {
+    const engineer = new Engineer(input.engineerName, input.engineerId, input.engineerEmail, input.engineerGithub)
+    team.push(engineer)
+    addTeamMember()
+})
 }
 
 function addIntern() {
@@ -102,20 +107,25 @@ function addIntern() {
         },
         {
             type: 'input',
-            name: 'internName',
+            name: 'internId',
             message: 'What is the employee Id for the intern?'
         },
         {
             type: 'input',
-            name: 'internName',
+            name: 'internEmail',
             message: 'What is the email address for the intern?'
         },
         {
             type: 'input',
-            name: 'internName',
+            name: 'internSchool',
             message: 'What is the school name for the intern?'
         }
     ])
+    .then(input => {
+        const intern = new Intern(input.internName, input.internId, input.internEmail, input.internSchool)
+        team.push(intern)
+        addTeamMember()
+    })
 }
 
 function finishTeam () {
