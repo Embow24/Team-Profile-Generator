@@ -14,6 +14,7 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 const team = []
 
+//Function to add manager information to team array
 const addManager = () => {
     return inquirer.prompt([
     {
@@ -45,6 +46,7 @@ const addManager = () => {
 }
 addManager()
 
+//Function to create a menu with options to add team members 
 function addTeamMember(){
     return inquirer.prompt([
         {
@@ -68,6 +70,7 @@ function addTeamMember(){
     })
 }
 
+//Function to add engineer information to team array
 function addEngineer() {
 inquirer.prompt([
     {
@@ -98,6 +101,7 @@ inquirer.prompt([
 })
 }
 
+//Function to add intern information to team array
 function addIntern() {
     inquirer.prompt([
         {
@@ -128,6 +132,7 @@ function addIntern() {
     })
 }
 
+//Function to generate HTML file
 function finishTeam () {
 fs.writeFile(outputPath, render(team), err => {
     if(err){
