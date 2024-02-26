@@ -12,9 +12,10 @@ const render = require("./src/page-template.js");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-let team = []
+const team = []
 
-const addManager = [
+const addManager = () => {
+    return inquirer.prompt([
     {
         type: 'input',
         name: 'managerName',
@@ -34,14 +35,38 @@ const addManager = [
         type: 'input',
         name: 'managerOfficeNumber',
         message: 'What is the office number for the team manager?'
-    }
-]
-
-function init () {
-    inquirer.prompt(addManager)
+    },
+])
+.then(input => {
+    const manager = new Manager(input.managerName, input.managerId, input.managerEmail, input.managerOfficeNumber)
+    team.push(manager)
+    addTeamMember()
+})
 }
+addManager()
 
-init()
+function addTeamMember(){
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name:  'teamMember',
+            message: 'Would you like to add a team member?',
+            choices: ['Engineer', 'Intern', 'Finish building the team']
+        }
+    ])
+    .then(answer => {
+        switch(answer.teamMember) {
+            case 'Engineer': 
+            addEngineer();
+            break;
+        case 'Intern':
+            addIntern();
+            break;
+        case 'Finish building the team':
+            finishTeam()
+        }
+    })
+}
 
 function addEngineer() {
 inquirer.prompt([
@@ -66,7 +91,6 @@ inquirer.prompt([
         message: 'What is the Github username for the engineer?'
     }
 ])
-//return to menu
 }
 
 function addIntern() {
@@ -92,6 +116,8 @@ function addIntern() {
             message: 'What is the school name for the intern?'
         }
     ])
-    //return to menu
 }
 
+function finishTeam () {
+
+}
