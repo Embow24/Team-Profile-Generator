@@ -12,8 +12,9 @@ const render = require("./src/page-template.js");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
+let team = []
 
-const teamMembers = [
+const addManager = [
     {
         type: 'input',
         name: 'managerName',
@@ -35,6 +36,12 @@ const teamMembers = [
         message: 'What is the office number for the team manager?'
     }
 ]
+
+function init () {
+    inquirer.prompt(addManager)
+}
+
+init()
 
 function addEngineer() {
 inquirer.prompt([
@@ -63,11 +70,28 @@ inquirer.prompt([
 }
 
 function addIntern() {
-
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the name of the intern?'
+        },
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the employee Id for the intern?'
+        },
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the email address for the intern?'
+        },
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'What is the school name for the intern?'
+        }
+    ])
+    //return to menu
 }
 
-function init () {
-    inquirer.prompt(teamMembers)
-}
-
-init()
