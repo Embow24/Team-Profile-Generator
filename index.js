@@ -129,5 +129,13 @@ function addIntern() {
 }
 
 function finishTeam () {
-
+fs.writeFile(outputPath, render(team), err => {
+    if(err){
+        console.error(err)
+    } else {
+        console.log("HTML file has been generated")
+    }
+})
 }
+
+
