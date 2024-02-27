@@ -9,6 +9,9 @@ Run npm install and ensure that the up to date inquirer and jest have been insta
 # Usage
 To use this project, the command terminal needs to be opened and node index.js needs to be inputted. After that, prompt questions will be displayed for information about the manager of the team. Once those questions have been answered a menu will be displayed asking to add more team members or finish building the team. If engineer or intern are chosen more questions will be displayed, but if the finish building team option is chosen then a HTML file will be generated. 
 
+Below is a screenshot of an example generated HTML file:
+![screenshot](images/Screenshot.png)
+
 # Credits
 
 # License
